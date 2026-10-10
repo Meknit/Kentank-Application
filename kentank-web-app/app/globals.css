@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/* ---- Design tokens (Kentank blue water-brand identity) ---- */
+@theme {
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-rubik), ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand blue scale */
+  --color-brand-50: #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-200: #bfdbfe;
+  --color-brand-300: #93c5fd;
+  --color-brand-400: #60a5fa;
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #2563eb;
+  --color-brand-700: #1d4ed8;
+  --color-brand-800: #1e40af;
+  --color-brand-900: #1e3a8a;
+  --color-brand-950: #0b2545;
+
+  /* Accent sky (used for the highlighted words in the hero) */
+  --color-accent-300: #7dd3fc;
+  --color-accent-400: #38bdf8;
+  --color-accent-500: #0ea5e9;
+
+  --color-ink: #0f2233;
+  --color-ink-soft: #475569;
+}
+
+:root {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+}
+
+/* Brand hero gradient overlay */
+.hero-overlay {
+  background: linear-gradient(
+    110deg,
+    rgba(11, 37, 69, 0.82) 0%,
+    rgba(23, 62, 148, 0.62) 42%,
+    rgba(14, 165, 233, 0.32) 100%
+  );
+}
+
+.text-gradient-accent {
+  background: linear-gradient(90deg, #7dd3fc, #38bdf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Accessible focus ring for keyboard users */
+:where(a, button, input, textarea, select):focus-visible {
+  outline: 3px solid var(--color-accent-400);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
